@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" width="1000" height="1200" role="img" aria-label="Dr(a). Nome Sobrenome">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8c4a8"/>
+      <stop offset="1" stop-color="#8a6a38"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#g)"/>
+  <rect width="1000" height="1200" fill="url(#glow)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2">
+    <circle cx="720" cy="360" r="46"/>
+    <path d="M650 360 a70 70 0 0 1 140 0" stroke-opacity="0.25"/>
+  </g>
+  <g transform="translate(500 648)" fill="#ffffff">
+    <path transform="translate(-26 -70) scale(1.6)" fill-opacity="0.9" d="M16 3c-2.2 0-3.6 1-5 1S8.2 3 6 3C3.8 3 2 4.9 2 8c0 3.4 1.2 5.6 2.3 9.4C5 19.8 5.6 22 7 22c1.3 0 1.7-1.6 2.3-3.6C10 16 10.4 14.5 12 14.5s2 1.5 2.7 3.9C15.3 20.4 15.7 22 17 22c1.4 0 2-2.2 2.7-4.6C20.8 13.6 22 11.4 22 8c0-3.1-1.8-5-4-5z"/>
+  </g>
+  <text x="50%" y="840" text-anchor="middle" font-family="Georgia, serif" font-size="85" fill="#ffffff" font-style="italic">Dr(a). Nome Sobrenome</text>
+  <text x="50%" y="932" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#ffffff" fill-opacity="0.8" letter-spacing="2">ATENDIMENTO HUMANIZADO</text>
+</svg>

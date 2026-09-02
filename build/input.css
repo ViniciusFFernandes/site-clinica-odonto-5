@@ -1,0 +1,137 @@
+@import "tailwindcss" source(none);
+@source "../index.php";
+@source "../js/app.js";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-nude: var(--nude);
+  --color-cream: var(--cream);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  /* Paleta boutique: creme, nude, bege, dourado suave, marrom claro */
+  --radius: 1rem;
+  --background: oklch(0.988 0.008 85);          /* creme quente */
+  --foreground: oklch(0.32 0.025 60);           /* marrom escuro (texto) */
+  --card: oklch(0.995 0.004 85);
+  --card-foreground: oklch(0.32 0.025 60);
+  --popover: oklch(0.995 0.004 85);
+  --popover-foreground: oklch(0.32 0.025 60);
+  --primary: oklch(0.46 0.055 65);              /* marrom-taupe elegante (títulos) */
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.955 0.018 78);           /* bege claro */
+  --secondary-foreground: oklch(0.46 0.055 65);
+  --muted: oklch(0.955 0.015 78);
+  --muted-foreground: oklch(0.52 0.028 62);     /* marrom médio */
+  --accent: oklch(0.72 0.085 78);               /* dourado suave */
+  --accent-foreground: oklch(0.28 0.03 60);
+  --accent-soft: oklch(0.93 0.035 80);          /* dourado bem claro / champagne */
+  --whatsapp: oklch(0.62 0.16 150);
+  --whatsapp-foreground: oklch(0.99 0.005 150);
+  --gold: oklch(0.74 0.095 80);                 /* dourado */
+  --gold-deep: oklch(0.62 0.09 72);             /* dourado profundo */
+  --nude: oklch(0.90 0.028 55);                 /* nude */
+  --cream: oklch(0.965 0.014 82);
+  --gradient-deep: linear-gradient(135deg, oklch(0.62 0.09 72), oklch(0.78 0.095 82));
+  --gradient-soft: linear-gradient(180deg, oklch(0.97 0.018 80), oklch(0.988 0.008 85));
+  --gradient-gold: linear-gradient(135deg, oklch(0.80 0.09 82), oklch(0.66 0.09 70));
+  --shadow-soft: 0 12px 34px -14px oklch(0.55 0.06 65 / 0.28);
+  --shadow-lift: 0 28px 66px -26px oklch(0.50 0.06 65 / 0.40);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.90 0.02 76);
+  --input: oklch(0.90 0.02 76);
+  --ring: oklch(0.72 0.085 78);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility surface-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-4px);
+  }
+}
+
+@utility text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
